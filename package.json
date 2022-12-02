@@ -14,9 +14,9 @@
     "lint:js:fix": "lint-js --fix --pattern './src/**/*.js'",
     "lint:js:test": "lint-js --test --pattern './src/**/*.js'",
     "test": "./scripts/test.js",
-    "test:head": "npm run test --no-headless",
-    "test:head:watch": "npm run test --no-headless --watch",
-    "test:watch": "npm run test --watch"
+    "test:head": "npm run test -- --no-headless",
+    "test:head:watch": "npm run test -- --no-headless --watch",
+    "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
