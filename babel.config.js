@@ -1,10 +1,12 @@
 module.exports = {
+  ignore: ['**/*.spec.js', '**/_specs_/**'],
+
   presets: [
     [
       '@babel/preset-env',
 
       {
-        modules: false,
+        modules: process.env.CJS ? 'commonjs' : false,
 
         targets: {
           browsers: [
