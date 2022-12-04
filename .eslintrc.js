@@ -25,7 +25,7 @@ module.exports = {
         node: true,
       },
 
-      files: ['./.eslintrc.js'],
+      files: ['./babel.config.js', './.eslintrc.js'],
     },
 
     {
