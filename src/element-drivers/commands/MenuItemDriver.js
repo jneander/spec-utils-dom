@@ -7,7 +7,7 @@ export default class MenuItemDriver {
 
   static findWithText(text, $parent = document.body) {
     const $element = [...$parent.querySelectorAll('[role="menuitem"]')].find($el =>
-      $el.textContent.includes(text)
+      $el.textContent.includes(text),
     )
 
     if (!$element) {

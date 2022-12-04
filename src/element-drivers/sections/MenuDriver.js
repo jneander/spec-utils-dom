@@ -4,7 +4,7 @@ import {keyboard} from '../..'
 export default class MenuDriver {
   static findWithLabelText(text, $parent = document.body) {
     const $element = [...$parent.querySelectorAll('[role="menu"]')].find($el =>
-      labelTextsFor($el).includes(text)
+      labelTextsFor($el).includes(text),
     )
 
     if (!$element) {

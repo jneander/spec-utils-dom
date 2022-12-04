@@ -3,7 +3,7 @@ const headingSelector = 'h1,h2,h3,h4,h5,h6,[role="heading"]'
 export default class HeadingDriver {
   static findWithText(text, $parent = document.body) {
     const $element = [...$parent.querySelectorAll(headingSelector)].find($el =>
-      $el.textContent.includes(text)
+      $el.textContent.includes(text),
     )
 
     if ($element == null) {

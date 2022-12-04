@@ -9,28 +9,28 @@ function withDefaults(options = {}) {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    ...options
+    ...options,
   }
 }
 
 keyboard.keyDown = function ($element, key, options) {
   return fireEvent.keyDown($element, {
     keyCode: isNaN(key) ? keycodes(key) : key,
-    ...withDefaults(options)
+    ...withDefaults(options),
   })
 }
 
 keyboard.keyPress = function ($element, key, options) {
   return fireEvent.keyPress($element, {
     keyCode: isNaN(key) ? keycodes(key) : key,
-    ...withDefaults(options)
+    ...withDefaults(options),
   })
 }
 
 keyboard.keyUp = function ($element, key, options) {
   return fireEvent.keyUp($element, {
     keyCode: isNaN(key) ? keycodes(key) : key,
-    ...withDefaults(options)
+    ...withDefaults(options),
   })
 }
 

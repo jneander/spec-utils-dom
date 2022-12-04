@@ -3,13 +3,13 @@ import {keyboard} from '../..'
 export default class SubmitInputDriver {
   static findAll($parent = document.body) {
     return [...$parent.querySelectorAll('input[type="submit"]')].map(
-      $el => new SubmitInputDriver($el)
+      $el => new SubmitInputDriver($el),
     )
   }
 
   static findWithText(text, $parent = document.body) {
     const $element = [...$parent.querySelectorAll('input[type="submit"]')].find($el =>
-      $el.value.includes(text)
+      $el.value.includes(text),
     )
 
     if (!$element) {
