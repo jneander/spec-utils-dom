@@ -3,13 +3,13 @@ import {keyboard} from '../..'
 export default class MenuItemRadioDriver {
   static findAll($parent) {
     return [...$parent.querySelectorAll('[role="menuitemradio"]')].map(
-      $el => new MenuItemRadioDriver($el)
+      $el => new MenuItemRadioDriver($el),
     )
   }
 
   static findWithText(text, $parent = document.body) {
     const $element = [...$parent.querySelectorAll('[role="menuitemradio"]')].find($el =>
-      $el.textContent.includes(text)
+      $el.textContent.includes(text),
     )
 
     if (!$element) {

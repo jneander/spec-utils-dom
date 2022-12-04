@@ -4,13 +4,13 @@ import {events, keyboard} from '../..'
 export default class SearchInputDriver {
   static findAll($parent = document.body) {
     return [...$parent.querySelectorAll('input[type="search"]')].map(
-      $el => new SearchInputDriver($el)
+      $el => new SearchInputDriver($el),
     )
   }
 
   static findWithLabelText(text, $parent = document.body) {
     const $input = [...$parent.querySelectorAll('input[type="search"]')].find($el =>
-      labelTextsFor($el).includes(text)
+      labelTextsFor($el).includes(text),
     )
 
     if (!$input) {

@@ -12,7 +12,7 @@ const events = {
       bubbles: true,
       cancelable: true,
       view: $element.ownerDocument.defaultView,
-      ...eventProperties
+      ...eventProperties,
     })
 
     return $element.dispatchEvent(event)
@@ -28,12 +28,12 @@ const events = {
       new InputEvent('input', {
         bubbles: true,
         cancelable: true,
-        ...eventProperties
-      })
+        ...eventProperties,
+      }),
     )
   },
 
-  dispatch
+  dispatch,
 }
 
 export default events

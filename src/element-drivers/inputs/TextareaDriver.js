@@ -4,7 +4,7 @@ import {events, keyboard} from '../..'
 export default class TextareaDriver {
   static findWithLabelText(text, $parent = document.body) {
     const element = [...$parent.querySelectorAll('textarea')].find($el =>
-      labelTextsFor($el).includes(text)
+      labelTextsFor($el).includes(text),
     )
 
     if (!element) {

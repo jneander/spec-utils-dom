@@ -7,7 +7,7 @@ export default class ButtonDriver {
 
   static findWithText(text, $parent = document.body) {
     const $element = [...$parent.querySelectorAll('button,[role="button"]')].find($el =>
-      $el.textContent.includes(text)
+      $el.textContent.includes(text),
     )
 
     if (!$element) {

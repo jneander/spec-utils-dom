@@ -2,7 +2,7 @@ function withDefaultOptions(options) {
   return {
     $parent: document.body,
     as: 'div',
-    ...options
+    ...options,
   }
 }
 
