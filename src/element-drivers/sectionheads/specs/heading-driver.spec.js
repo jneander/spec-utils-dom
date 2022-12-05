@@ -1,5 +1,5 @@
 import {createContainer, renderString} from '../../..'
-import HeadingDriver from '../HeadingDriver'
+import HeadingDriver from '../heading-driver'
 
 describe('Element Drivers > Sectionheads > HeadingDriver', () => {
   let $container

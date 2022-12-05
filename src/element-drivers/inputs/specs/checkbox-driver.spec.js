@@ -1,7 +1,7 @@
 import sinon from 'sinon'
 
 import {createContainer, renderString} from '../../..'
-import CheckboxDriver from '../CheckboxDriver'
+import CheckboxDriver from '../checkbox-driver'
 
 describe('Element Drivers > Inputs > CheckboxDriver', () => {
   let $container

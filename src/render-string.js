@@ -1,4 +1,4 @@
-import createContainer from './createContainer'
+import createContainer from './create-container'
 
 export default function renderString(htmlString, $container = null) {
   if ($container == null) {

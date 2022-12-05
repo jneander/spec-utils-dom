@@ -1,4 +1,4 @@
-export {default as ButtonDriver} from './ButtonDriver'
-export {default as LinkDriver} from './LinkDriver'
-export {default as MenuItemDriver} from './MenuItemDriver'
-export {default as SubmitInputDriver} from './SubmitInputDriver'
+export {default as ButtonDriver} from './button-driver'
+export {default as LinkDriver} from './link-driver'
+export {default as MenuItemDriver} from './menu-item-driver'
+export {default as SubmitInputDriver} from './submit-input-driver'
