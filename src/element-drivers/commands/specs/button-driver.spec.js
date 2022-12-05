@@ -1,7 +1,7 @@
 import sinon from 'sinon'
 
 import {createContainer, renderString} from '../../..'
-import ButtonDriver from '../button-driver'
+import {ButtonDriver} from '../button-driver'
 
 describe('Element Drivers > Commands > ButtonDriver', () => {
   let $container

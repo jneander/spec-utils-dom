@@ -1,7 +1,7 @@
 import sinon from 'sinon'
 
 import {createContainer, renderString} from '../../..'
-import LinkDriver from '../link-driver'
+import {LinkDriver} from '../link-driver'
 
 describe('Element Drivers > Commands > LinkDriver', () => {
   let $container

@@ -1,1 +1,1 @@
-export {default as MenuDriver} from './menu-driver'
+export {MenuDriver} from './menu-driver'

@@ -1,7 +1,7 @@
 import {labelTextsFor, labelElementsFor} from '../../properties'
 import {events, keyboard} from '../..'
 
-export default class TextareaDriver {
+export class TextareaDriver {
   static findWithLabelText(text, $parent = document.body) {
     const element = [...$parent.querySelectorAll('textarea')].find($el =>
       labelTextsFor($el).includes(text),

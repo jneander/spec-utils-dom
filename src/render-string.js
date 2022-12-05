@@ -1,6 +1,6 @@
-import createContainer from './create-container'
+import {createContainer} from './create-container'
 
-export default function renderString(htmlString, $container = null) {
+export function renderString(htmlString, $container = null) {
   if ($container == null) {
     $container = createContainer('div')
   }

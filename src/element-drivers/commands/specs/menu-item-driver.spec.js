@@ -1,7 +1,7 @@
 import sinon from 'sinon'
 
 import {createContainer, renderString} from '../../..'
-import MenuItemDriver from '../menu-item-driver'
+import {MenuItemDriver} from '../menu-item-driver'
 
 describe('Element Drivers > Commands > MenuItemDriver', () => {
   let $container

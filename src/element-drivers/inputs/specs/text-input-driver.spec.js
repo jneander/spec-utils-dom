@@ -1,7 +1,7 @@
 import sinon from 'sinon'
 
 import {createContainer, renderString} from '../../..'
-import TextInputDriver from '../text-input-driver'
+import {TextInputDriver} from '../text-input-driver'
 
 describe('Element Drivers > Inputs > TextInputDriver', () => {
   let $container

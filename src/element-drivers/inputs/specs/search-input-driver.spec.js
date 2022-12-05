@@ -1,7 +1,7 @@
 import sinon from 'sinon'
 
 import {createContainer, renderString} from '../../..'
-import SearchInputDriver from '../search-input-driver'
+import {SearchInputDriver} from '../search-input-driver'
 
 describe('Element Drivers > Inputs > SearchInputDriver', () => {
   let $container

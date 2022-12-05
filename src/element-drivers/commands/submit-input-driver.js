@@ -1,6 +1,6 @@
 import {keyboard} from '../..'
 
-export default class SubmitInputDriver {
+export class SubmitInputDriver {
   static findAll($parent = document.body) {
     return [...$parent.querySelectorAll('input[type="submit"]')].map(
       $el => new SubmitInputDriver($el),

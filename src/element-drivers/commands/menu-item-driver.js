@@ -1,6 +1,6 @@
 import {keyboard} from '../..'
 
-export default class MenuItemDriver {
+export class MenuItemDriver {
   static findAll($parent) {
     return [...$parent.querySelectorAll('[role="menuitem"]')].map($el => new MenuItemDriver($el))
   }
