@@ -1,5 +1,5 @@
 module.exports = {
-  ignore: ['**/*.spec.js', '**/_specs_/**'],
+  ignore: ['**/*.spec.js', '**/specs/**'],
 
   presets: [
     [
