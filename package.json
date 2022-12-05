@@ -2,13 +2,13 @@
   "name": "@jneander/spec-utils-dom",
   "version": "1.1.2",
   "description": "Spec utilities for DOM interactions",
-  "main": "./lib/index.js",
-  "module": "./es/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
   "scripts": {
     "build": "npm run build:cjs && npm run build:es",
-    "build:cjs": "CJS=true babel --out-dir ./lib ./src",
-    "build:es": "babel --out-dir ./es ./src",
-    "clean": "rimraf es/ lib/",
+    "build:cjs": "tsc -p ./config/tsconfig.cjs.json",
+    "build:es": "tsc -p ./config/tsconfig.esm.json",
+    "clean": "rimraf dist/*",
     "lint:eslint": "eslint .",
     "lint:eslint:fix": "eslint --fix .",
     "lint:prettier": "prettier --check .",
@@ -39,7 +39,6 @@
     "keycodes": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.13",
     "@babel/core": "^7.12.13",
     "@babel/eslint-parser": "^7.12.13",
     "@babel/plugin-transform-runtime": "^7.12.13",
@@ -68,6 +67,7 @@
     "process": "^0.11.10",
     "rimraf": "^3.0.2",
     "sinon": "^15.0.0",
+    "typescript": "^4.9.3",
     "util": "^0.12.3",
     "webpack": "^5.21.1"
   },
