@@ -1,7 +1,7 @@
 import sinon from 'sinon'
 
 import {createContainer, renderString} from '../../..'
-import SubmitInputDriver from '../SubmitInputDriver'
+import SubmitInputDriver from '../submit-input-driver'
 
 describe('Element Drivers > Commands > SubmitInputDriver', () => {
   let $container

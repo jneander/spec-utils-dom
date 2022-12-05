@@ -1,9 +1,9 @@
 import sinon from 'sinon'
 
 import {createContainer, renderString} from '../../..'
-import MenuItemDriver from '../MenuItemDriver'
+import MenuItemRadioDriver from '../menu-item-radio-driver'
 
-describe('Element Drivers > Commands > MenuItemDriver', () => {
+describe('Element Drivers > Commands > MenuItemRadioDriver', () => {
   let $container
   let driver
 
@@ -17,7 +17,7 @@ describe('Element Drivers > Commands > MenuItemDriver', () => {
 
   function render(string) {
     renderString(string, $container)
-    driver = new MenuItemDriver(getItem())
+    driver = new MenuItemRadioDriver(getItem())
   }
 
   function getItem(idNumber = 1) {
@@ -27,92 +27,92 @@ describe('Element Drivers > Commands > MenuItemDriver', () => {
   describe('.findAll()', () => {
     let items
 
-    it('matches elements with the "menuitem" role', () => {
+    it('matches elements with the "menuitemradio" role', () => {
       render(`
         <div id="container-1">
-          <span id="item-1" role="menuitem">Item 1</span>
-          <span id="item-2" role="menuitem">Item 1</span>
+          <span id="item-1" role="menuitemradio">Item 1</span>
+          <span id="item-2" role="menuitemradio">Item 1</span>
         </div>
       `)
-      items = MenuItemDriver.findAll($container.querySelector('#container-1'))
+      items = MenuItemRadioDriver.findAll($container.querySelector('#container-1'))
       expect(items.map(item => item.id)).to.have.members(['item-1', 'item-2'])
     })
 
     it('ignores elements outside the given parent element', () => {
       render(`
         <div id="container-1">
-          <button id="item-2" role="menuitem">Item 1</button>
+          <button id="item-2" role="menuitemradio">Item 1</button>
         </div>
         <div id="container-2">
-          <button id="item-1" role="menuitem">Item 1</button>
+          <button id="item-1" role="menuitemradio">Item 1</button>
         </div>
       `)
-      items = MenuItemDriver.findAll($container.querySelector('#container-2'))
+      items = MenuItemRadioDriver.findAll($container.querySelector('#container-2'))
       expect(items.map(item => item.id)).to.have.members(['item-1'])
     })
   })
 
   describe('.findWithText()', () => {
-    it('matches elements with the "menuitem" role', () => {
+    it('matches elements with the "menuitemradio" role', () => {
       render(`
         <div>
-          <span id="item-1" role="menuitem">Item 1</span>
+          <span id="item-1" role="menuitemradio">Item 1</span>
         </div>
       `)
-      driver = MenuItemDriver.findWithText('Item 1')
+      driver = MenuItemRadioDriver.findWithText('Item 1')
       expect(driver.$element).to.equal(getItem())
     })
 
     it('optionally searches within the given parent element', () => {
       render(`
         <div id="container-1">
-          <button id="item-2" role="menuitem">Item 1</button>
+          <button id="item-2" role="menuitemradio">Item 1</button>
         </div>
         <div id="container-2">
-          <button id="item-1" role="menuitem">Item 1</button>
+          <button id="item-1" role="menuitemradio">Item 1</button>
         </div>
       `)
-      driver = MenuItemDriver.findWithText('Item 1', $container.querySelector('#container-2'))
+      driver = MenuItemRadioDriver.findWithText('Item 1', $container.querySelector('#container-2'))
       expect(driver.$element).to.equal(getItem())
     })
 
     it('matches deeply-nested text', () => {
-      render('<button id="item-1" role="menuitem"><span><span>Item 1</span></span></button>')
-      driver = MenuItemDriver.findWithText('Item 1')
+      render('<button id="item-1" role="menuitemradio"><span><span>Item 1</span></span></button>')
+      driver = MenuItemRadioDriver.findWithText('Item 1')
       expect(driver.$element).to.equal(getItem())
     })
 
     it('ignores surrouding whitespace', () => {
       render(`
-        <button id="item-1" role="menuitem">
+        <button id="item-1" role="menuitemradio">
           Item 1
         </button>
       `)
-      driver = MenuItemDriver.findWithText('Item 1')
+      driver = MenuItemRadioDriver.findWithText('Item 1')
       expect(driver.$element).to.equal(getItem())
     })
 
     it('returns null when nothing matches', () => {
-      driver = MenuItemDriver.findWithText('Item 1')
+      driver = MenuItemRadioDriver.findWithText('Item 1')
       expect(driver).to.equal(null)
     })
   })
 
   describe('#$element', () => {
-    it('is the element with the "menuitem" role', () => {
-      render('<button id="item-1" role="menuitem">Item 1</button>')
+    it('is the element with the "menuitemradio" role', () => {
+      render('<button id="item-1" role="menuitemradio">Item 1</button>')
       expect(driver.$element).to.equal(getItem())
     })
   })
 
   describe('#id', () => {
     it('is the id the element', () => {
-      render('<button id="item-1" "menuitem">Item 1</button>')
+      render('<button id="item-1" "menuitemradio">Item 1</button>')
       expect(driver.text).to.equal('Item 1')
     })
 
     it('is null when the element has no id', () => {
-      render('<button id="item-1" "menuitem"><span><span>Item 1</span></span></button>')
+      render('<button id="item-1" "menuitemradio"><span><span>Item 1</span></span></button>')
       getItem().removeAttribute('id')
       expect(driver.id).to.be.null
     })
@@ -120,18 +120,18 @@ describe('Element Drivers > Commands > MenuItemDriver', () => {
 
   describe('#text', () => {
     it('is the text content of the element', () => {
-      render('<button id="item-1" role="menuitem">Item 1</button>')
+      render('<button id="item-1" role="menuitemradio">Item 1</button>')
       expect(driver.text).to.equal('Item 1')
     })
 
     it('includes deeply-nested text', () => {
-      render('<button id="item-1" role="menuitem"><span><span>Item 1</span></span></button>')
+      render('<button id="item-1" role="menuitemradio"><span><span>Item 1</span></span></button>')
       expect(driver.text).to.equal('Item 1')
     })
 
     it('trims surrounding whitespace', () => {
       render(`
-        <button id="item-1" role="menuitem">
+        <button id="item-1" role="menuitemradio">
           Item 1
         </button>
       `)
@@ -141,25 +141,25 @@ describe('Element Drivers > Commands > MenuItemDriver', () => {
 
   describe('#disabled', () => {
     it('is true when the element is disabled', () => {
-      render('<button disabled id="item-1" role="menuitem">Item 1</button>')
+      render('<button disabled id="item-1" role="menuitemradio">Item 1</button>')
       expect(driver.disabled).to.equal(true)
     })
 
     it('is false when the element is not disabled', () => {
-      render('<button id="item-1" role="menuitem">Item 1</button>')
+      render('<button id="item-1" role="menuitemradio">Item 1</button>')
       expect(driver.disabled).to.equal(false)
     })
   })
 
   describe('#focused', () => {
     it('is true when the element has focus', () => {
-      render('<button id="item-1" role="menuitem">Item 1</button>')
+      render('<button id="item-1" role="menuitemradio">Item 1</button>')
       getItem().focus()
       expect(driver.focused).to.equal(true)
     })
 
     it('is false when the element does not have focus', () => {
-      render('<button id="item-1" role="menuitem">Item 1</button>')
+      render('<button id="item-1" role="menuitemradio">Item 1</button>')
       expect(driver.focused).to.equal(false)
     })
   })
@@ -168,7 +168,7 @@ describe('Element Drivers > Commands > MenuItemDriver', () => {
     it('propagates a "click" event', () => {
       const eventSpy = sinon.spy()
       $container.addEventListener('click', eventSpy, false)
-      render('<button id="item-1" role="menuitem">Item 1</button>')
+      render('<button id="item-1" role="menuitemradio">Item 1</button>')
       driver.click()
       expect(eventSpy.callCount).to.equal(1)
     })
@@ -178,7 +178,7 @@ describe('Element Drivers > Commands > MenuItemDriver', () => {
     let eventSpy
 
     beforeEach(() => {
-      render('<button id="item-1" role="menuitem">Item 1</button>')
+      render('<button id="item-1" role="menuitemradio">Item 1</button>')
       listenForFocus()
     })
 
