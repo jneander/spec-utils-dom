@@ -1,7 +1,7 @@
 import {labelTextsFor, labelElementsFor} from '../../properties'
 import {events, keyboard} from '../..'
 
-export default class SearchInputDriver {
+export class SearchInputDriver {
   static findAll($parent = document.body) {
     return [...$parent.querySelectorAll('input[type="search"]')].map(
       $el => new SearchInputDriver($el),

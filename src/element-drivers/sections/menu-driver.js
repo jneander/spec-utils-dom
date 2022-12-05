@@ -1,7 +1,7 @@
 import {labelTextsFor} from '../../properties'
 import {keyboard} from '../..'
 
-export default class MenuDriver {
+export class MenuDriver {
   static findWithLabelText(text, $parent = document.body) {
     const $element = [...$parent.querySelectorAll('[role="menu"]')].find($el =>
       labelTextsFor($el).includes(text),

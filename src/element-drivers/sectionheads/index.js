@@ -1,1 +1,1 @@
-export {default as HeadingDriver} from './heading-driver'
+export {HeadingDriver} from './heading-driver'

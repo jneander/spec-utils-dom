@@ -1,6 +1,6 @@
 import {keyboard} from '../..'
 
-export default class ButtonDriver {
+export class ButtonDriver {
   static findAll($parent = document.body) {
     return [...$parent.querySelectorAll('button,[role="button"]')].map($el => new ButtonDriver($el))
   }

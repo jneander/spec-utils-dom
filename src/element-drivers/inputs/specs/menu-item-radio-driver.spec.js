@@ -1,7 +1,7 @@
 import sinon from 'sinon'
 
 import {createContainer, renderString} from '../../..'
-import MenuItemRadioDriver from '../menu-item-radio-driver'
+import {MenuItemRadioDriver} from '../menu-item-radio-driver'
 
 describe('Element Drivers > Commands > MenuItemRadioDriver', () => {
   let $container

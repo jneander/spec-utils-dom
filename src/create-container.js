@@ -6,7 +6,7 @@ function withDefaultOptions(options) {
   }
 }
 
-export default function createContainer(options = {}) {
+export function createContainer(options = {}) {
   const {$parent, as} = withDefaultOptions(options)
   return $parent.appendChild(document.createElement(as))
 }

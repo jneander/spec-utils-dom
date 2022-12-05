@@ -1,4 +1,4 @@
-export default class LinkDriver {
+export class LinkDriver {
   static findAll($parent = document.body) {
     return [...$parent.querySelectorAll('a')].map($el => new LinkDriver($el))
   }

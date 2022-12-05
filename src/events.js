@@ -1,6 +1,6 @@
 import {fireEvent as dispatch} from '@testing-library/dom'
 
-const events = {
+export const events = {
   change: dispatch.change,
 
   click($element, eventProperties = {}) {
@@ -35,5 +35,3 @@ const events = {
 
   dispatch,
 }
-
-export default events

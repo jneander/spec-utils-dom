@@ -1,6 +1,6 @@
 import {events, labelElementsFor, labelTextsFor} from '../..'
 
-export default class CheckboxDriver {
+export class CheckboxDriver {
   static findWithLabelText(text, $parent = document.body) {
     const $element = [...$parent.querySelectorAll('input[type="checkbox"]')].find($el =>
       labelTextsFor($el).includes(text),

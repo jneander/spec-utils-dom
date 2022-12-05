@@ -1,6 +1,6 @@
 import {keyboard} from '../..'
 
-export default class MenuItemRadioDriver {
+export class MenuItemRadioDriver {
   static findAll($parent) {
     return [...$parent.querySelectorAll('[role="menuitemradio"]')].map(
       $el => new MenuItemRadioDriver($el),

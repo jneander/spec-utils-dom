@@ -1,7 +1,7 @@
 import {labelTextsFor, labelElementsFor} from '../../properties'
 import {events, keyboard} from '../..'
 
-export default class TextInputDriver {
+export class TextInputDriver {
   static findAll($parent = document.body) {
     return [...$parent.querySelectorAll('input[type="text"]')].map($el => new TextInputDriver($el))
   }

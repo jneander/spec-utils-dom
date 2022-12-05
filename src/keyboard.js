@@ -1,7 +1,7 @@
 import {fireEvent} from '@testing-library/dom'
 import keycodes from 'keycodes'
 
-const keyboard = {}
+export const keyboard = {}
 
 function withDefaults(options = {}) {
   return {
@@ -33,5 +33,3 @@ keyboard.keyUp = function ($element, key, options) {
     ...withDefaults(options),
   })
 }
-
-export default keyboard
