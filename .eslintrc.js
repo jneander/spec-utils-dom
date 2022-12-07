@@ -12,6 +12,7 @@ module.exports = {
 
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'prettier',
     'plugin:eslint-comments/recommended',
     'plugin:promise/recommended',
@@ -60,14 +61,23 @@ module.exports = {
   root: true,
 
   rules: {
+    '@typescript-eslint/no-var-requires': 'off',
+    'arrow-body-style': 'off',
     'eslint-comments/no-unused-disable': 'error',
-    'import/extensions': ['error', 'ignorePackages', {js: 'never'}],
+    'import/extensions': ['error', 'ignorePackages', {js: 'never', ts: 'never'}],
     'import/no-extraneous-dependencies': ['error', {devDependencies: true}],
     'no-unused-vars': ['error', {argsIgnorePattern: '^_'}],
-    'prettier/prettier': 'error',
-    'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
+    'prettier/prettier': 'error',
   },
 
-  settings: {},
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+
+    'import/resolver': {
+      typescript: {},
+    },
+  },
 }
