@@ -18,8 +18,9 @@
     "test": "./scripts/test.js",
     "test:head": "npm run test -- --no-headless",
     "test:head:watch": "npm run test -- --no-headless --watch",
-    "test:types": "tsc --noEmit",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "types:test": "tsc --noEmit",
+    "types:test:watch": "tsc --noEmit --watch"
   },
   "repository": {
     "type": "git",
