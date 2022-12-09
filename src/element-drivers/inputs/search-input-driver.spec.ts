@@ -1,11 +1,11 @@
 import sinon, {SinonSpy} from 'sinon'
 
 import {createContainer, renderString} from '../../..'
-import {TextInputDriver} from '../text-input-driver'
+import {SearchInputDriver} from './search-input-driver'
 
-describe('Element Drivers > Inputs > TextInputDriver', () => {
+describe('Element Drivers > Inputs > SearchInputDriver', () => {
   let $container: HTMLElement
-  let driver: TextInputDriver
+  let driver: SearchInputDriver
 
   beforeEach(() => {
     $container = createContainer()
@@ -17,7 +17,7 @@ describe('Element Drivers > Inputs > TextInputDriver', () => {
 
   function render(string: string) {
     renderString(string, $container)
-    driver = new TextInputDriver(getInput())
+    driver = new SearchInputDriver(getInput())
   }
 
   function getInput(): HTMLInputElement {
@@ -27,74 +27,74 @@ describe('Element Drivers > Inputs > TextInputDriver', () => {
   describe('.findAll()', () => {
     let inputs
 
-    it('matches `input` elements with a type of "text"', () => {
+    it('matches `input` elements with a type of "search"', () => {
       render(`
-        <label>Input 2<input type="text" id="input-2" /></label>
-        <label>Input 1<input type="text" id="input-1" /></label>
+        <label>Input 2<input type="search" id="input-2" /></label>
+        <label>Input 1<input type="search" id="input-1" /></label>
       `)
-      inputs = TextInputDriver.findAll()
+      inputs = SearchInputDriver.findAll()
       expect(inputs.map(input => input.id)).to.have.members(['input-1', 'input-2'])
     })
 
-    it('does not match `input` elements without a type of "text"', () => {
+    it('does not match `input` elements without a type of "search"', () => {
       render(`
-        <label>Input 2<input type="text" id="input-2" /></label>
-        <label>Input 1<input type="search" id="input-1" /></label>
+        <label>Input 2<input type="search" id="input-2" /></label>
+        <label>Input 1<input type="text" id="input-1" /></label>
       `)
-      inputs = TextInputDriver.findAll()
+      inputs = SearchInputDriver.findAll()
       expect(inputs.map(input => input.id)).to.have.members(['input-2'])
     })
 
     it('optionally searches within the given parent element', () => {
       render(`
         <div id="container-1">
-          <label>Input 1<input type="text" id="input-2" /></label>
+          <label>Input 1<input type="search" id="input-2" /></label>
         </div>
         <div id="container-2">
-          <label>Input 1<input type="text" id="input-1" /></label>
+          <label>Input 1<input type="search" id="input-1" /></label>
         </div>
       `)
-      inputs = TextInputDriver.findAll($container.querySelector('#container-2'))
+      inputs = SearchInputDriver.findAll($container.querySelector('#container-2'))
       expect(inputs.map(input => input.id)).to.have.members(['input-1'])
     })
   })
 
   describe('.findWithLabelText()', () => {
-    it('matches `input` elements with a type of "text"', () => {
+    it('matches `input` elements with a type of "search"', () => {
       render(`
-        <label>Input 2<input type="text" id="input-2" /></label>
-        <label>Input 1<input type="text" id="input-1" /></label>
+        <label>Input 2<input type="search" id="input-2" /></label>
+        <label>Input 1<input type="search" id="input-1" /></label>
       `)
-      driver = TextInputDriver.findWithLabelText('Input 1')
+      driver = SearchInputDriver.findWithLabelText('Input 1')
       expect(driver.$element).to.equal(getInput())
     })
 
-    it('does not match `input` elements without a type of "text"', () => {
+    it('does not match `input` elements without a type of "search"', () => {
       render(`
-        <label>Input 2<input type="text" id="input-2" /></label>
-        <label>Input 1<input type="search" id="input-1" /></label>
+        <label>Input 2<input type="search" id="input-2" /></label>
+        <label>Input 1<input type="text" id="input-1" /></label>
       `)
-      driver = TextInputDriver.findWithLabelText('Input 1')
+      driver = SearchInputDriver.findWithLabelText('Input 1')
       expect(driver).not.to.exist
     })
 
     it('optionally searches within the given parent element', () => {
       render(`
         <div id="container-1">
-          <label>Input 1<input type="text" id="input-2" /></label>
+          <label>Input 1<input type="search" id="input-2" /></label>
         </div>
         <div id="container-2">
-          <label>Input 1<input type="text" id="input-1" /></label>
+          <label>Input 1<input type="search" id="input-1" /></label>
         </div>
       `)
       const $parent = $container.querySelector('#container-2') as HTMLElement
-      driver = TextInputDriver.findWithLabelText('Input 1', $parent)
+      driver = SearchInputDriver.findWithLabelText('Input 1', $parent)
       expect(driver.$element).to.equal(getInput())
     })
 
     it('matches deeply-nested text', () => {
-      render('<label><span>Input 1</span><input type="text" id="input-1" /></label>')
-      driver = TextInputDriver.findWithLabelText('Input 1')
+      render('<label><span>Input 1</span><input type="search" id="input-1" /></label>')
+      driver = SearchInputDriver.findWithLabelText('Input 1')
       expect(driver.$element).to.equal(getInput())
     })
 
@@ -102,34 +102,34 @@ describe('Element Drivers > Inputs > TextInputDriver', () => {
       render(`
         <label>
           Input 1
-          <input type="text" id="input-1" />
+          <input type="search" id="input-1" />
         </label>
       `)
-      driver = TextInputDriver.findWithLabelText('Input 1')
+      driver = SearchInputDriver.findWithLabelText('Input 1')
       expect(driver.$element).to.equal(getInput())
     })
 
     it('returns null when nothing matches', () => {
-      driver = TextInputDriver.findWithLabelText('Input 1')
+      driver = SearchInputDriver.findWithLabelText('Input 1')
       expect(driver).to.equal(null)
     })
   })
 
   describe('#$element', () => {
     it('is the `input` element', () => {
-      render('<input type="text" id="input-1" />')
+      render('<input type="search" id="input-1" />')
       expect(driver.$element).to.equal(getInput())
     })
   })
 
   describe('#id', () => {
     it('is the id the `input`', () => {
-      render('<input type="text" id="input-1" />')
+      render('<input type="search" id="input-1" />')
       expect(driver.id).to.equal('input-1')
     })
 
     it('is null when the `input` has no id', () => {
-      render('<input type="text" id="input-1" />')
+      render('<input type="search" id="input-1" />')
       getInput().removeAttribute('id')
       expect(driver.id).to.be.null
     })
@@ -140,7 +140,7 @@ describe('Element Drivers > Inputs > TextInputDriver', () => {
       render(`
         <label id="label-1">
           Label 1
-          <input type="text" id="input-1" />
+          <input type="search" id="input-1" />
         </label>
       `)
       expect(driver.labelTexts).to.have.members(['Label 1'])
@@ -152,7 +152,7 @@ describe('Element Drivers > Inputs > TextInputDriver', () => {
       render(`
         <label id="label-1">
           Label 1
-          <input type="text" id="input-1" />
+          <input type="search" id="input-1" />
         </label>
       `)
       expect(driver.$labels).to.have.members([$container.querySelector('label')])
@@ -161,37 +161,37 @@ describe('Element Drivers > Inputs > TextInputDriver', () => {
 
   describe('#focused', () => {
     it('is true when the `input` has focus', () => {
-      render('<input type="text" id="input-1" />')
+      render('<input type="search" id="input-1" />')
       getInput().focus()
       expect(driver.focused).to.equal(true)
     })
 
     it('is false when the `input` does not have focus', () => {
-      render('<input type="text" id="input-1" />')
+      render('<input type="search" id="input-1" />')
       expect(driver.focused).to.equal(false)
     })
   })
 
   describe('#placeholder', () => {
     it('is the placeholder of the `input` element', () => {
-      render('<input type="text" id="input-1" placeholder="Placeholder" value="Content" />')
+      render('<input type="search" id="input-1" placeholder="Placeholder" value="Content" />')
       expect(driver.placeholder).to.equal('Placeholder')
     })
 
     it('is null when the `input` has no placeholder', () => {
-      render('<input type="text" id="input-1" />')
+      render('<input type="search" id="input-1" />')
       expect(driver.placeholder).to.equal(null)
     })
   })
 
   describe('#value', () => {
     it('is the content of the `input` element', () => {
-      render('<input type="text" id="input-1" value="Content" />')
+      render('<input type="search" id="input-1" value="Content" />')
       expect(driver.value).to.equal('Content')
     })
 
     it('is an empty string when the `input` has no content', () => {
-      render('<input type="text" id="input-1" />')
+      render('<input type="search" id="input-1" />')
       expect(driver.value).to.equal('')
     })
   })
@@ -200,7 +200,7 @@ describe('Element Drivers > Inputs > TextInputDriver', () => {
     let eventSpy: SinonSpy
 
     beforeEach(() => {
-      render('<input type="text" id="input-1" />')
+      render('<input type="search" id="input-1" />')
       listenForFocus()
     })
 
@@ -234,7 +234,7 @@ describe('Element Drivers > Inputs > TextInputDriver', () => {
     let eventSpy: SinonSpy
 
     beforeEach(() => {
-      render('<input type="text" id="input-1" />')
+      render('<input type="search" id="input-1" />')
       eventSpy = sinon.spy()
       getInput().addEventListener('keydown', eventSpy, false)
     })

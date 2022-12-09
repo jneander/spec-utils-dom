@@ -1,7 +1,7 @@
 import sinon, {SinonSpy} from 'sinon'
 
-import {createContainer, renderString} from '../../..'
-import {CheckboxDriver} from '../checkbox-driver'
+import {createContainer, renderString} from '../..'
+import {CheckboxDriver} from './checkbox-driver'
 
 describe('Element Drivers > Inputs > CheckboxDriver', () => {
   let $container: HTMLElement

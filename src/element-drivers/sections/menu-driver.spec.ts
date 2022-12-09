@@ -1,7 +1,7 @@
 import sinon, {SinonSpy} from 'sinon'
 
-import {createContainer, renderString} from '../../..'
-import {MenuDriver} from '../menu-driver'
+import {createContainer, renderString} from '../..'
+import {MenuDriver} from './menu-driver'
 
 describe('Element Drivers > Sections > MenuDriver', () => {
   let $container: HTMLElement
