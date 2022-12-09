@@ -20,7 +20,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm ci
+      - run: |
+          npm ci
+          npm run build
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v3
         with:
