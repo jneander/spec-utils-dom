@@ -32,6 +32,11 @@
   ],
   "author": "Jeremy Neander <jeremy.neander@gmail.com>",
   "license": "MIT",
+  "release": {
+    "extends": [
+      "@jneander/semantic-release-config"
+    ]
+  },
   "dependencies": {
     "@jneander/utils-async": "^2.0.0",
     "@testing-library/dom": "^8.0.0",
@@ -46,6 +51,7 @@
     "@babel/runtime-corejs3": "^7.12.13",
     "@jneander/dev-utils-node": "^2.0.0",
     "@jneander/prettier-config": "^1.0.0",
+    "@jneander/semantic-release-config": "^1.0.1",
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
     "@types/sinon": "^10.0.13",
