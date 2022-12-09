@@ -1,7 +1,7 @@
 import sinon, {SinonSpy} from 'sinon'
 
-import {createContainer, renderString} from '../../..'
-import {ButtonDriver} from '../button-driver'
+import {createContainer, renderString} from '../..'
+import {ButtonDriver} from './button-driver'
 
 describe('Element Drivers > Commands > ButtonDriver', () => {
   let $container: HTMLElement

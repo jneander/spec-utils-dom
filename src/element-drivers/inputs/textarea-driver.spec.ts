@@ -1,7 +1,7 @@
 import sinon, {SinonSpy} from 'sinon'
 
 import {createContainer, renderString} from '../../..'
-import {TextareaDriver} from '../textarea-driver'
+import {TextareaDriver} from './textarea-driver'
 
 describe('Element Drivers > Inputs > TextareaDriver', () => {
   let $container: HTMLElement

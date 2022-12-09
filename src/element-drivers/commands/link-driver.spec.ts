@@ -1,7 +1,7 @@
 import sinon, {SinonSpy} from 'sinon'
 
 import {createContainer, renderString} from '../../..'
-import {LinkDriver} from '../link-driver'
+import {LinkDriver} from './link-driver'
 
 describe('Element Drivers > Commands > LinkDriver', () => {
   let $container: HTMLElement

@@ -1,5 +1,5 @@
-import {createContainer, renderString} from '../..'
-import * as labels from '..'
+import {createContainer, renderString} from '..'
+import * as labels from '.'
 
 describe('Properties > Labels', () => {
   let $container: HTMLElement
