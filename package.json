@@ -5,6 +5,10 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/types/index.d.ts",
+  "files": [
+    "CHANGELOG.md",
+    "dist"
+  ],
   "scripts": {
     "build": "npm run build:cjs && npm run build:es",
     "build:cjs": "tsc -p ./config/tsconfig.cjs.json",
