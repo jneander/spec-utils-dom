@@ -181,7 +181,7 @@ describe('Element Drivers > Sectionheads > HeadingDriver', () => {
       expect(driver.$element).to.equal(getHeading())
     })
 
-    it('ignores surrouding whitespace', () => {
+    it('ignores surrounding whitespace', () => {
       render(`
         <h1 id="heading-1">
           Heading 1

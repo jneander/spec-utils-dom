@@ -100,7 +100,7 @@ describe('Element Drivers > Commands > ButtonDriver', () => {
       expect(driver.$element).to.equal(getButton())
     })
 
-    it('ignores surrouding whitespace', () => {
+    it('ignores surrounding whitespace', () => {
       render(`
         <button id="button-1">
           Button 1

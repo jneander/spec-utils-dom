@@ -82,7 +82,7 @@ describe('Element Drivers > Commands > MenuItemDriver', () => {
       expect(driver.$element).to.equal(getItem())
     })
 
-    it('ignores surrouding whitespace', () => {
+    it('ignores surrounding whitespace', () => {
       render(`
         <button id="item-1" role="menuitem">
           Item 1

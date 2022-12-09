@@ -91,7 +91,7 @@ describe('Element Drivers > Commands > SubmitInputDriver', () => {
       expect(driver.$element).to.equal(getInput())
     })
 
-    it('ignores surrouding whitespace', () => {
+    it('ignores surrounding whitespace', () => {
       render(`
         <input id="input-1" type="submit" value="
           Submit 1

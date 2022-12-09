@@ -48,7 +48,7 @@ describe('Element Drivers > Sections > MenuDriver', () => {
       expect(driver.$element).to.equal(getMenu())
     })
 
-    it('ignores surrouding whitespace', () => {
+    it('ignores surrounding whitespace', () => {
       render(`
         <div aria-label="  Menu 1  " id="menu-1" role="menu" tabindex="0"></div>
       `)
