@@ -46,7 +46,7 @@ module.exports = {
     },
   ],
 
-  parser: '@babel/eslint-parser',
+  parser: '@typescript-eslint/parser',
 
   parserOptions: {
     ecmaFeatures: {
@@ -61,12 +61,13 @@ module.exports = {
   root: true,
 
   rules: {
+    '@typescript-eslint/no-unused-vars': ['error', {argsIgnorePattern: '^_'}],
     '@typescript-eslint/no-var-requires': 'off',
     'arrow-body-style': 'off',
     'eslint-comments/no-unused-disable': 'error',
     'import/extensions': ['error', 'ignorePackages', {js: 'never', ts: 'never'}],
     'import/no-extraneous-dependencies': ['error', {devDependencies: true}],
-    'no-unused-vars': ['error', {argsIgnorePattern: '^_'}],
+    'no-unused-vars': 'off',
     'prefer-arrow-callback': 'off',
     'prettier/prettier': 'error',
   },
