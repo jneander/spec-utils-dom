@@ -1,5 +1,3 @@
-export {fireEvent} from '@testing-library/dom'
-
 export * from './element-drivers'
 export * from './properties'
 
