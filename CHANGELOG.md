@@ -7,6 +7,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/jneander/spec-utils-dom/compare/v2.0.0...v2.0.1) (2022-12-09)
+
+### Bug Fixes
+
+- build before publishing
+  ([4221aa4](https://github.com/jneander/spec-utils-dom/commit/4221aa4439cabafea0fb150f9bab2027eedb4af4))
+
 ## [2.0.0](https://github.com/jneander/spec-utils-dom/compare/v1.1.2...v2.0.0) (2022-12-09)
 
 ### ⚠ BREAKING CHANGES
