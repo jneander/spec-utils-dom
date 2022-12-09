@@ -55,7 +55,7 @@ describe('Element Drivers > Inputs > CheckboxDriver', () => {
       expect(driver.$element).to.equal(getInput())
     })
 
-    it('ignores surrouding whitespace', () => {
+    it('ignores surrounding whitespace', () => {
       render(`
         <label>
           Input 1

@@ -79,7 +79,7 @@ describe('Element Drivers > Commands > LinkDriver', () => {
       expect(driver.$element).to.equal(getLink())
     })
 
-    it('ignores surrouding whitespace', () => {
+    it('ignores surrounding whitespace', () => {
       render(`
         <a href="http://localhost" id="link-1">
           Link 1
