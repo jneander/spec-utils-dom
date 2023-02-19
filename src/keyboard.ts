@@ -15,21 +15,21 @@ function withDefaults(options: KeyOptions = {}) {
 }
 
 export const keyboard = {
-  keyDown($element: HTMLElement, key: KeyId, options: KeyOptions) {
+  keyDown($element: HTMLElement, key: KeyId, options?: KeyOptions) {
     return fireEvent.keyDown($element, {
       keyCode: isNaN(key as number) ? keycodes(key) : key,
       ...withDefaults(options),
     })
   },
 
-  keyPress($element: HTMLElement, key: KeyId, options: KeyOptions) {
+  keyPress($element: HTMLElement, key: KeyId, options?: KeyOptions) {
     return fireEvent.keyPress($element, {
       keyCode: isNaN(key as number) ? keycodes(key) : key,
       ...withDefaults(options),
     })
   },
 
-  keyUp($element: HTMLElement, key: KeyId, options: KeyOptions) {
+  keyUp($element: HTMLElement, key: KeyId, options?: KeyOptions) {
     return fireEvent.keyUp($element, {
       keyCode: isNaN(key as number) ? keycodes(key) : key,
       ...withDefaults(options),

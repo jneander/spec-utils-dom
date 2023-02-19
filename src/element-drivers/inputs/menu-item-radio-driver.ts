@@ -53,7 +53,7 @@ export class MenuItemRadioDriver {
     this.$element.focus()
   }
 
-  keyDown(key: string | number, options: KeyOptions): void {
+  keyDown(key: string | number, options?: KeyOptions): void {
     keyboard.keyDown(this.$element, key, options)
   }
 }

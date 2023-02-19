@@ -29,7 +29,7 @@ export class MenuDriver {
     return labelTextsFor(this.$element)
   }
 
-  keyDown(key: KeyId, options: KeyOptions) {
+  keyDown(key: KeyId, options?: KeyOptions) {
     keyboard.keyDown(this.$element, key, options)
   }
 }
