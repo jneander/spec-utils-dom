@@ -7,6 +7,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/jneander/spec-utils-dom/compare/v2.0.1...v2.0.2) (2023-02-19)
+
+### Bug Fixes
+
+- make key-down options type optional
+  ([46f0292](https://github.com/jneander/spec-utils-dom/commit/46f0292480b94d1b87768aa464fc1df33a500544))
+
 ## [2.0.1](https://github.com/jneander/spec-utils-dom/compare/v2.0.0...v2.0.1) (2022-12-09)
 
 ### Bug Fixes
